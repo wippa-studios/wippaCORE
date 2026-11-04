@@ -61,10 +61,10 @@ A runtime that cannot deny edit, cannot deny shell, or cannot run an acceptance 
 
 This repository does not claim enforcement. It defines what an adapter should enforce and what remains a convention. The structural check proves that the files exist, the manifest agrees with them and every playbook file is routed exactly once. It proves nothing about a running agent.
 
-## Relation to other repositories
+## Related repositories
 
-- `wippaAGENT` is the OpenCode reference adapter. It supplies the tools, permissions and configuration that make the contract enforceable. Its mapping is recorded in `RUNTIME.md`.
-- `wippaCLAUDE` is the Claude Code adapter at 0.1.0; its capability table is in its own README.
+- [`wippaAGENT`](https://github.com/wippa-studios/wippaAGENT) is the OpenCode reference adapter, and its mapping of this contract is recorded in `RUNTIME.md`.
+- [`wippaCLAUDE`](https://github.com/wippa-studios/wippaCLAUDE) is the Claude Code adapter at 0.1.0, and its capability table is in its own README.
 
 ## Licence
 
