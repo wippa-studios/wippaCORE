@@ -1,0 +1,143 @@
+{
+  "name": "wippaCORE",
+  "version": "0.1.0",
+  "license": "MIT",
+  "roles": [
+    {
+      "id": "wippaAGENT",
+      "kind": "primary",
+      "category": "Primary",
+      "access": [],
+      "file": "roles/wippaAGENT.md",
+      "playbooks": null
+    },
+    {
+      "id": "core-developer",
+      "kind": "subagent",
+      "category": "Core Development",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/core-developer.md",
+      "playbooks": "playbooks/specialist-playbooks/references/core-developer"
+    },
+    {
+      "id": "language-specialist",
+      "kind": "subagent",
+      "category": "Language Specialists",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/language-specialist.md",
+      "playbooks": "playbooks/specialist-playbooks/references/language-specialist"
+    },
+    {
+      "id": "infrastructure-engineer",
+      "kind": "subagent",
+      "category": "Infrastructure",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/infrastructure-engineer.md",
+      "playbooks": "playbooks/specialist-playbooks/references/infrastructure-engineer"
+    },
+    {
+      "id": "quality-auditor",
+      "kind": "subagent",
+      "category": "Quality & Security",
+      "access": [
+        "shell"
+      ],
+      "file": "roles/quality-auditor.md",
+      "playbooks": "playbooks/specialist-playbooks/references/quality-auditor"
+    },
+    {
+      "id": "security-reviewer",
+      "kind": "subagent",
+      "category": "Quality & Security",
+      "access": [
+        "shell"
+      ],
+      "file": "roles/security-reviewer.md",
+      "playbooks": "playbooks/specialist-playbooks/references/security-reviewer"
+    },
+    {
+      "id": "debugger",
+      "kind": "subagent",
+      "category": "Quality & Security",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/debugger.md",
+      "playbooks": "playbooks/specialist-playbooks/references/debugger"
+    },
+    {
+      "id": "data-engineer",
+      "kind": "subagent",
+      "category": "Data & AI",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/data-engineer.md",
+      "playbooks": "playbooks/specialist-playbooks/references/data-engineer"
+    },
+    {
+      "id": "developer-experience",
+      "kind": "subagent",
+      "category": "Developer Experience",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/developer-experience.md",
+      "playbooks": "playbooks/specialist-playbooks/references/developer-experience"
+    },
+    {
+      "id": "domain-specialist",
+      "kind": "subagent",
+      "category": "Specialized Domains",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/domain-specialist.md",
+      "playbooks": "playbooks/domain-playbooks"
+    },
+    {
+      "id": "product-strategist",
+      "kind": "subagent",
+      "category": "Business & Product",
+      "access": [
+        "edit"
+      ],
+      "file": "roles/product-strategist.md",
+      "playbooks": "playbooks/specialist-playbooks/references/product-strategist"
+    },
+    {
+      "id": "orchestration-lead",
+      "kind": "subagent",
+      "category": "Meta & Orchestration",
+      "access": [
+        "edit",
+        "shell"
+      ],
+      "file": "roles/orchestration-lead.md",
+      "playbooks": "playbooks/specialist-playbooks/references/orchestration-lead"
+    },
+    {
+      "id": "research-analyst",
+      "kind": "subagent",
+      "category": "Research & Analysis",
+      "access": [
+        "edit"
+      ],
+      "file": "roles/research-analyst.md",
+      "playbooks": "playbooks/specialist-playbooks/references/research-analyst"
+    }
+  ]
+}

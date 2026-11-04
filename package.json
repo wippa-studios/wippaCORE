@@ -1,0 +1,15 @@
+{
+  "name": "wippacore",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-neutral core for the wippa agent set: roles, routing, review contract, ledger format, acceptance discipline and specialist playbooks.",
+  "license": "MIT",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "test": "node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}
