@@ -1,6 +1,6 @@
 # wippaCORE specification
 
-Status: 0.1.0. This document is normative. **MUST**, **MUST NOT**, **SHOULD** and **MAY** carry their usual meaning. An adapter that cannot meet a requirement **MUST** disclose the gap as described in section 10.
+Status: 0.1.1. This document is normative. **MUST**, **MUST NOT**, **SHOULD** and **MAY** carry their usual meaning. An adapter that cannot meet a requirement **MUST** disclose the gap as described in section 10.
 
 ## 1. Purpose and non-goals
 
@@ -91,7 +91,7 @@ A reviewer **MUST** see the diff, not a summary of the diff. Where the adapter c
 - High-risk work receives `quality-auditor`, plus `security-reviewer` when the change touches auth, input, secrets or personal data.
 - A reviewer **MUST NOT** fix its own findings. It reports them to the orchestrator, which returns them to the implementer.
 
-The review loop runs at most two iterations per work item. A revision is a continuation of the same child session so the earlier diff and context remain. After the second iteration, if findings are still open, the orchestrator **MUST** stop and escalate with:
+The review loop runs at most two iterations per work item. A revision resumes the same child session where the host exposes one. Where it does not, the adapter starts a fresh child with the findings and the earlier diff, and discloses the difference. After the second iteration, if findings are still open, the orchestrator **MUST** stop and escalate with:
 
 - the open findings;
 - what is still broken;
@@ -183,7 +183,7 @@ An adapter **MUST**:
 3. **Provide an acceptance gate.** The gate runs the declared command in the workspace, returns the real exit code and a one-line outcome, and refuses to report a pass without an execution.
 4. **Map the ledger.** Use `.wippa/PLAN.md` or a published host-specific mapping. Confine the write to that path.
 5. **Load playbooks on demand.** Install the six folders as a skill or equivalent. A specialist reads only the file named for the topic, not the whole set.
-6. **Support dispatch and continuation.** Dispatch names a role id from the manifest. Continuation resumes the same child session for a revision rather than starting a fresh one.
+6. **Support dispatch and continuation.** Dispatch names a role id from the manifest. Continuation resumes the same child session for a revision where the host exposes one. Where it does not, the adapter starts a fresh child with the findings and the earlier diff, and states the limitation in its capability table.
 7. **Implement the permission model.** Map each role's `access` array to host permissions. Enforce the primary and reviewer denials. If the host cannot deny an action, disclose it.
 8. **State its version support.** Declare which core version the adapter targets, and record every deviation from this specification in its own documentation.
 

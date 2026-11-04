@@ -1,6 +1,6 @@
 # Runtime mapping
 
-The core has no runtime. This file records how one adapter implements the contract, and what the next adapter is planned to use. It is not a specification of either host beyond the mechanisms named here.
+The core has no runtime. This file records how two adapters implement the contract. It is not a specification of either host beyond the mechanisms named here.
 
 ## OpenCode adapter (current)
 
@@ -33,22 +33,23 @@ The core ledger path is `.wippa/PLAN.md`. The OpenCode adapter maps it to `.open
 
 These are prompt text in the adapter. They are checked by the orchestrator, not by the host.
 
-## Claude Code adapter (next)
+## Claude Code adapter (current)
 
-`wippaCLAUDE` is not built. Every entry in this table is a plan. None of it has been run or verified.
+`wippaCLAUDE` 0.1.0 implements the contract with a prompt and two hooks. The mechanisms named below live in that repository, not in this one.
 
-| Contract need | Planned mechanism | Status |
+| Contract need | Claude Code mechanism | Strength |
 |---|---|---|
-| Primary orchestrator | A primary agent with `Edit`, `Write` and `Bash` disallowed in the adapter's settings | Planned; permission coverage not verified |
-| Subagent dispatch | The Task tool with one named subagent per manifest role | Planned |
-| Continuation | Resume the same task session for a revision | Planned; resume semantics not verified |
-| Acceptance command | A wrapper or hook that runs the declared command and captures its exit code, with a command allowlist | Planned; the gate is the main open design item |
-| Plan ledger | A write to `.wippa/PLAN.md`; path confinement would need a hook or permission rule | Planned; confinement not available by default |
-| Diff reading | `git diff` through the shell, or a structured diff tool if the adapter supplies one | Planned |
-| Playbook loading | The six folders installed as skills, loaded on demand | Planned |
-| Permission model | Settings allow/deny rules plus hooks for the acceptance and harness gates | Planned; hook coverage not verified |
+| Primary orchestrator | `CLAUDE.md` plus a `PreToolUse` hook that denies `Edit`, `Write` and `NotebookEdit` outside `.wippa/PLAN.md` and denies `Bash` except read-only git and `node scripts/verify.mjs` | **Enforced** when `.claude/settings.json` is active |
+| Subagent dispatch | Agent tool with the subagent name; 12 files in `.claude/agents/` | **Enforced** as a capability; routing is a **convention** |
+| Continuation | No session-id resume; a revision is a fresh Agent call with the findings and diff | **Absent**, disclosed |
+| Acceptance command | `.wippa/acceptance` through `scripts/verify.mjs`; the `Stop` hook blocks until exit 0 | **Enforced** as a hook; the gate is a small allowlist, not the OpenCode guard |
+| Plan ledger | `Write`/`Edit` to `.wippa/PLAN.md`, confined by `PreToolUse` | **Enforced** lexically; symlink and hardlink are not protected |
+| Diff reading | The reviewer runs `git diff` in its own shell | **Enforced** as a capability; the conclusion is a **convention** |
+| Playbook loading | Six folders in `.claude/skills/`; the `Skill` tool | **Enforced** as a loader; file selection is a **convention** |
+| Permission model | Subagent `tools` allowlists, `permissions.deny` for `rm -rf` and `sudo`, `Agent` absent from every subagent | **Enforced** where settings and agent files are active |
+| Harness acknowledgement | None automatic; High-risk and reviewer read are conventions | **Absent**, disclosed |
 
-Until `wippaCLAUDE` ships and its capability table is measured, no guarantee in the Claude Code column may be quoted as enforced.
+The adapter's own README is authoritative. No Claude row may be quoted as enforced beyond what that table says.
 
 ## Comparing adapters
 

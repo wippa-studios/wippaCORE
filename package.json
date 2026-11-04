@@ -1,6 +1,6 @@
 {
   "name": "wippacore",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Framework-neutral core for the wippa agent set: roles, routing, review contract, ledger format, acceptance discipline and specialist playbooks.",

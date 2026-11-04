@@ -2,6 +2,14 @@
 
 All notable changes to wippaCORE are recorded here. The format follows Keep a Changelog, and the project uses semantic versioning as described in `SPEC.md` section 12.
 
+## [0.1.1] - 2026-11-04
+
+### Changed
+
+- `SPEC.md` section 5 and section 11.6: a revision resumes the same child session where the host exposes one; where it does not, the adapter starts a fresh child with the findings and the earlier diff, and discloses the difference.
+- `RUNTIME.md`: the planned Claude Code column is replaced with the current capability table for `wippaCLAUDE` 0.1.0, naming what the adapter enforces, what remains convention and what is absent.
+- The version is 0.1.1 in `SPEC.md`, `manifest.json` and `package.json`, and `scripts/check.mjs` asserts it.
+
 ## [0.1.0] - 2026-11-04
 
 ### Added

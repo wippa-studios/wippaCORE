@@ -116,7 +116,7 @@ try {
 let roles = []
 if (manifest !== null) {
   assert(manifest.name === "wippaCORE", `${manifestFile}: name must be wippaCORE`)
-  assert(manifest.version === "0.1.0", `${manifestFile}: version must be 0.1.0`)
+  assert(manifest.version === "0.1.1", `${manifestFile}: version must be 0.1.1`)
   assert(manifest.license === "MIT", `${manifestFile}: license must be MIT`)
   assert(Array.isArray(manifest.roles), `${manifestFile}: roles must be an array`)
   roles = Array.isArray(manifest.roles) ? manifest.roles : []

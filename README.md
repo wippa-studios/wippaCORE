@@ -2,14 +2,14 @@
 
 Framework-neutral core for the wippa agent set: the role definitions, routing rules, review contract, plan ledger format, acceptance discipline and playbooks that adapters build on.
 
-Version 0.1.0. This repository is a contract and a set of prompt sources. It has no runtime, no permissions and no command line.
+Version 0.1.1. This repository is a contract and a set of prompt sources. It has no runtime, no permissions and no command line.
 
 ## What this is
 
 - Thirteen role files: one primary orchestrator and twelve specialists.
 - A machine-readable `manifest.json` describing each role, its category, its access expectation and its playbook binding.
 - `SPEC.md`, the normative contract an adapter implements.
-- `RUNTIME.md`, the capability map for the OpenCode adapter and the planned Claude Code adapter.
+- `RUNTIME.md`, the capability map for the OpenCode adapter and the Claude Code adapter.
 - Six playbook folders, loaded on demand rather than pasted into every prompt.
 - `scripts/check.mjs`, a structural check with no dependencies.
 
@@ -64,7 +64,7 @@ This repository does not claim enforcement. It defines what an adapter should en
 ## Relation to other repositories
 
 - `wippaAGENT` is the OpenCode reference adapter. It supplies the tools, permissions and configuration that make the contract enforceable. Its mapping is recorded in `RUNTIME.md`.
-- `wippaCLAUDE` is the next adapter. It is not built. The Claude Code column in `RUNTIME.md` is a plan, not a verified behaviour.
+- `wippaCLAUDE` is the Claude Code adapter at 0.1.0; its capability table is in its own README.
 
 ## Licence
 
